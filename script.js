@@ -9,8 +9,9 @@ const quoteElement = document.getElementById("quote");
 
 let currentQuoteIndex = Math.floor(Math.random() * quotes.length);
 
-quoteElement.textContent = quotes[currentQuoteIndex];
+quoteElement.innerHTML = `&ldquo;${quotes[currentQuoteIndex]}&rdquo;`; // Add quotation marks
 quoteElement.style.opacity = 1;
+quoteElement.style.fontStyle = "italic";
 
 function updateQuote() {
     quoteElement.style.opacity = 0;
@@ -18,7 +19,7 @@ function updateQuote() {
     setTimeout(() => {
         currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
 
-        quoteElement.textContent = quotes[currentQuoteIndex];
+        quoteElement.innerHTML = `&ldquo;${quotes[currentQuoteIndex]}&rdquo;`;
         quoteElement.style.opacity = 1;
 
         
