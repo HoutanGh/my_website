@@ -13,6 +13,7 @@ body {
     height: 100vh;
 }
 
+
 /* Quote Container */
 .quote-container {
     text-align: center;
@@ -30,7 +31,6 @@ body {
     font-style: italic;
     position: relative;
 }
-
 
 /* Navigation Bar */
 header {
@@ -58,4 +58,24 @@ header ul li a {
     color: #fff;
     text-decoration: none;
     font-size: 1.2em;
+    position: relative;
+    padding:  5px 0;
+    display: inline-block;
+}
+
+/* Hover Effect */
+header ul li a::after {
+    content: ""; /* The underline */
+    position: absolute;
+    left: 50%; /* Start from the center */
+    bottom: 0; /* Align at the bottom */
+    width: 0; /* Start with no width */
+    height: 2px;
+    background-color: white;
+    transition: all 0.3s ease-out; /* Smooth animation */
+    transform: translateX(-50%); /* Center align the underline */
+}
+
+header ul li a:hover::after {
+    width: 100%; /* Expand to full width */
 }
