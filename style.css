@@ -20,8 +20,8 @@ body {
     max-width: 600px;
     padding: 10px;
     border-radius: 10px;
-    background: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: #f4f4f4;
+    
 }
 
 #quote {
@@ -78,4 +78,23 @@ header ul li a::after {
 
 header ul li a:hover::after {
     width: 100%; /* Expand to full width */
+}
+
+/* List Styling */
+#activities-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#activities-list li {
+    padding: 10px 20px;
+    margin: 10px 0;
+    background: #f4f4f4;
+    border-radius: 8px;
+    transition: opacity 0.3s ease;
+}
+
+#activities-list li.completed {
+    opacity: 0.5; /* Reduce opacity for completed activities */
 }

@@ -2,30 +2,64 @@ const quotes = [
     "The Gods are an amalgamation of the emotions of the human race over time. Or the emotions of a single person over their life.",
     "The fact that there are rules in chess means that you can play and enjoy chess. The fact that there are rules for life (it is finite) means that you can enjoy life, that's why the gods were jealous of the mortals.",
     "The eternal damnation of committing sucide is to make sure you always die for others and never for yourself. Giving up and ending your life is to turn your back on God which means your greater purpose.",
-    "You got given a lottery ticket to experience life, make sure it's well spent."
+    "You got given a lottery ticket to experience life. At the end, make sure it was spent well."
 ]
 
 const quoteElement = document.getElementById("quote");
 
-let currentQuoteIndex = Math.floor(Math.random() * quotes.length);
+if (quoteElement) {
 
-quoteElement.innerHTML = `&ldquo;${quotes[currentQuoteIndex]}&rdquo;`; // Add quotation marks
-quoteElement.style.opacity = 1;
-quoteElement.style.fontStyle = "italic";
+    let currentQuoteIndex = Math.floor(Math.random() * quotes.length);
 
-function updateQuote() {
-    quoteElement.style.opacity = 0;
+    quoteElement.innerHTML = `&ldquo;${quotes[currentQuoteIndex]}&rdquo;`; // Add quotation marks
+    quoteElement.style.opacity = 1;
+    quoteElement.style.fontStyle = "italic";
 
-    setTimeout(() => {
-        currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+    function updateQuote() {
+        quoteElement.style.opacity = 0;
 
-        quoteElement.innerHTML = `&ldquo;${quotes[currentQuoteIndex]}&rdquo;`;
-        quoteElement.style.opacity = 1;
+        setTimeout(() => {
+            currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
 
-        
-    }, 1000); // Matches the CSS transition duration
+            quoteElement.innerHTML = `&ldquo;${quotes[currentQuoteIndex]}&rdquo;`;
+            quoteElement.style.opacity = 1;
+
+            
+        }, 1000); // Matches the CSS transition duration
+    }
+    setInterval(updateQuote, 60000);
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    // List of activities
+    const activities = [
+        { title: "Reading Gulag Archipelago by Aleksandr Solzhenitsyn", startDate: "2024-11-20", endDate: null },
+        { title: "Quantum Information and Computation Lecture Notes by Richard Jozsa", startDate: "2025-01-05", endDate: null },
+        { title: "MIT Financial Mathematics Course", startDate: "2025-01-05", endDate: null },
+        { title: "Technical Business Analysis Training", startDate: "2024-12-17", endDate: "2025-01-24" }
+    ];
 
+    // Get the activities list element
+    const activitiesList = document.getElementById("activities-list");
 
-setInterval(updateQuote, 60000);
+    function renderActivities() {
+        if (!activitiesList) {
+            console.error("Element with ID 'activities-list' not found.");
+            return;
+        }
+
+        activities.forEach((activity) => {
+            const li = document.createElement("li");
+            li.textContent = `${activity.title} (${activity.startDate}${activity.endDate ? ` -  Ended: ${activity.endDate}` : " - Ongoing"})`;
+
+            if (activity.endDate) {
+                li.classList.add("completed");
+            }
+
+            activitiesList.appendChild(li);
+        });
+    }
+
+    // Render activities on page load
+    renderActivities();
+});
