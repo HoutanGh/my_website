@@ -2,7 +2,7 @@ const quotes = [
     "The Gods are an amalgamation of the emotions of the human race over time. Or the emotions of a single person over their life.",
     "The fact that there are rules in chess means that you can play and enjoy chess. The fact that there are rules for life (it is finite) means that you can enjoy life, that's why the gods were jealous of the mortals.",
     "The eternal damnation of committing sucide is to make sure you always die for others and never for yourself. Giving up and ending your life is to turn your back on God which means your greater purpose.",
-    "You got given a lottery ticket to experience life. At the end, make sure it was spent well.",
+    "You got given a lottery ticket. At the end, make sure it was spent well.",
     "But how have you lived if you have no story?"
 ]
 
@@ -34,6 +34,7 @@ if (quoteElement) {
 document.addEventListener("DOMContentLoaded", () => {
     // List of activities
     const activities = [
+        { title: "Business Analyst at VM02", startDate: "2025-01-27", endDate: null },
         { title: "Reading Gulag Archipelago by Aleksandr Solzhenitsyn", startDate: "2024-11-20", endDate: null },
         { title: "Quantum Information and Computation Lecture Notes by Richard Jozsa", startDate: "2025-01-05", endDate: null },
         { title: "MIT Financial Mathematics Course", startDate: "2025-01-05", endDate: null },
@@ -51,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         activities.forEach((activity) => {
             const li = document.createElement("li");
-            li.textContent = `${activity.title} (${activity.startDate}${activity.endDate ? ` -  Ended: ${activity.endDate}` : " - Ongoing"})`;
+            li.textContent = `${activity.title} (${activity.startDate}${activity.endDate ? ` -  Ended: ${activity.endDate}` : " - Present"})`;
 
             if (activity.endDate) {
                 li.classList.add("completed");
