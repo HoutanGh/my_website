@@ -2,7 +2,8 @@ const quotes = [
     "The Gods are an amalgamation of the emotions of the human race over time. Or the emotions of a single person over their life.",
     "The fact that there are rules in chess means that you can play and enjoy chess. The fact that there are rules for life (it is finite) means that you can enjoy life, that's why the gods were jealous of the mortals.",
     "The eternal damnation of committing sucide is to make sure you always die for others and never for yourself. Giving up and ending your life is to turn your back on God which means your greater purpose.",
-    "You got given a lottery ticket to experience life. At the end, make sure it was spent well."
+    "You got given a lottery ticket to experience life. At the end, make sure it was spent well.",
+    "But how have you lived if you have no story?"
 ]
 
 const quoteElement = document.getElementById("quote");
