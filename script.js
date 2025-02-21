@@ -3,7 +3,8 @@ const quotes = [
     "The fact that there are rules in chess means that you can play and enjoy chess. The fact that there are rules for life (it is finite) means that you can enjoy life, that's why the gods were jealous of the mortals.",
     "The eternal damnation of committing sucide is to make sure you always die for others and never for yourself. Giving up and ending your life is to turn your back on God which means your greater purpose.",
     "You got given a lottery ticket. At the end, make sure it was spent well.",
-    "But how have you lived if you have no story?"
+    "But how have you lived if you have no story?",
+    "At 50 you get the face you deserve - Orwell"
 ]
 
 const quoteElement = document.getElementById("quote");
