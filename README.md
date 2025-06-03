@@ -1,0 +1,5 @@
+- Home: Quotes and Qualifications
+- Projects: Code projets and Thesis
+- Contact: my contacts
+- Doing: What I am currently doing
+- Maybe GitHub page host
