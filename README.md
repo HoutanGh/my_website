@@ -3,3 +3,4 @@
 - Contact: my contacts
 - Doing: What I am currently doing
 - Maybe GitHub page host
+- [ ] QR code for website on CV
