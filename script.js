@@ -37,13 +37,14 @@ if (quoteElement) {
 document.addEventListener("DOMContentLoaded", () => {
     // List of activities
     const activities = [
-        { title: "Day Trading Projects", startDate: "2025-06-01", endDate: null },
-        { title: "Reading Don Quixote by Cervantes", startDate: "2025-05-10", endDate: null },
-        { title: "MIT Quantum Field Theory Lectures", startDate: "2025-05-01", endDate: null },
-        { title: "Technical Consultant at VM02", startDate: "2025-01-27", endDate: null },
-        { title: "Quantum Information and Computation Lecture Notes by Richard Jozsa", startDate: "2025-01-05", endDate: null },
-        { title: "Technical Business Analysis Training", startDate: "2024-12-17", endDate: "2025-01-24" },
-        { title: "Reading Gulag Archipelago by Aleksandr Solzhenitsyn", startDate: "2024-11-20", endDate: null }
+        { title: "Quant Scanner Project", startDate: "01/06/2025", endDate: null },
+        { title: "Reading Don Quixote by Cervantes", startDate: "10/05/2025", endDate: null },
+        { title: "MIT Quantum Field Theory Lectures", startDate: "01/05/2025", endDate: null },
+        { title: "MIT Financial Mathematics Lectures", startDate: "01/05/2025", endDate: null },
+        { title: "Technical Consultant at VMO2", startDate: "27/01/2025", endDate: null },
+        { title: "Quantum Information and Computation Lecture Notes by Richard Jozsa", startDate: "05/01/2025", endDate: null },
+        { title: "Technical Business Analysis Training", startDate: "17/12/2024", endDate: "24/01/2025" },
+        { title: "Reading Gulag Archipelago by Aleksandr Solzhenitsyn", startDate: "20/11/2024", endDate: "27/06/2025"}
     ];
 
     // Get the activities list element
@@ -66,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         sortedActivities.forEach((activity) => {
             const li = document.createElement("li");
-            li.textContent = `${activity.title} (${activity.startDate}${activity.endDate ? ` -  Ended: ${activity.endDate}` : " - Present"})`;
+            li.textContent = `${activity.title} (${activity.startDate}${activity.endDate ? ` -  ${activity.endDate}` : " - Present"})`;
 
             if (activity.endDate) {
                 li.classList.add("completed");
