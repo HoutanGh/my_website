@@ -7,3 +7,5 @@
 - [ ] what I want to do
 - [ ] music I am learning (maybe link PDF)
 
+- [ ] understand how hard it would be to transfer to react framework
+

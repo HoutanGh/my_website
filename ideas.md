@@ -1,0 +1,11 @@
+- [ ] change the quotes markings of the quotes
+- [ ] update MSc to include Durham
+- [ ] add my-trading-platform project
+- [ ] add acupuncture website project
+- [ ] add what i am doing now
+    - reading Man and His Symbols
+    - Don Quixote
+    - Trading and Investment
+    - Piano - tell them the track, maybe audio option to play me playing the song (that would be cool)
+    - 
+- [ ] login in option to 2 factor to change website stuff myself
