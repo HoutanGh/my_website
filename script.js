@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { title: "my-trading-platform Project", startDate: "01/12/2025", endDate: null },
         {title: "Mount Pleasant Park FC Committee member", startDate: "01/01/2025", endDate: null},   
         {title: "MMA", startDate: "17/12/2025", endDate: null},
-        {title: "Badminton", startDate: ""}     
+        {title: "Badminton", startDate: ""},    
         // { title: "MIT Quantum Field Theory Lectures", startDate: "01/05/2025", endDate: null },
         // { title: "MIT Financial Mathematics Lectures", startDate: "01/05/2025", endDate: null },
         { title: "Technical Business Analyst at VMO2", startDate: "27/01/2025", endDate: null },
