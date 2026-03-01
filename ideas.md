@@ -1,5 +1,5 @@
-- [ ] change the quotes markings of the quotes
-- [ ] update MSc to include Durham
+- [x] change the quotes markings of the quotes
+- [x] update MSc to include Durham
 - [ ] add my-trading-platform project
 - [ ] add acupuncture website project
 - [ ] add what i am doing now
@@ -9,3 +9,4 @@
     - Piano - tell them the track, maybe audio option to play me playing the song (that would be cool)
     - 
 - [ ] login in option to 2 factor to change website stuff myself
+- [ ] have projects that are mostly done - in BAU, or deployed (working on features)
