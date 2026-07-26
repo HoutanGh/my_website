@@ -2,7 +2,6 @@
   --paper: #f4f4f4;
   --ink: #333333;
   --secondary: #666666;
-  --footer: #555555;
   --white: #ffffff;
   --green: #2f7d4a;
   --green-soft: rgba(47, 125, 74, 0.12);
@@ -799,21 +798,6 @@ main > .page-width > .section:first-child {
   background: var(--green);
 }
 
-.site-footer {
-  min-height: 64px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-  color: var(--footer);
-  font-size: 10px;
-}
-
-.footer-links {
-  display: flex;
-  gap: 18px;
-}
-
 @media (max-width: 800px) {
   .projects-layout {
     grid-template-columns: 280px minmax(0, 1fr);
@@ -1007,13 +991,6 @@ main > .page-width > .section:first-child {
     padding-top: 18px;
   }
 
-  .site-footer {
-    min-height: 72px;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: column;
-    gap: 8px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

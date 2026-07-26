@@ -1,4 +1,3 @@
-import Footer from "./components/Footer";
 import IdentityHeader from "./components/IdentityHeader";
 import NowSection from "./components/NowSection";
 import PortfolioExplorer from "./components/PortfolioExplorer";
@@ -15,7 +14,6 @@ function App() {
           <NowSection />
         </div>
       </main>
-      <Footer />
     </div>
   );
 }

@@ -6,7 +6,7 @@ learning in a compact interface designed for quick scanning and optional explora
 
 ## Structure
 
-- `src/components/` contains the header, project/work explorer, Now section, and footer.
+- `src/components/` contains the header, project/work explorer, and Now section.
 - `src/data/` contains the editable portfolio content.
 - `public/cv/` contains the downloadable CV.
 - `src/styles.css` contains the complete responsive visual system.
