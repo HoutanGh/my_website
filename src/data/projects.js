@@ -62,12 +62,12 @@ export const projects = [
   {
     id: "quant",
     title: "small-quant-model",
-    short: "Compact quantitative research.",
+    short: "Machine-learning research for intraday momentum setups.",
     overview:
-      "A deliberately small quantitative research environment for asking focused questions about market data, evaluating signals and checking whether an idea survives basic scrutiny.",
+      "An MVP machine-learning research platform for intraday stock-trading analysis, focused on high-relative-volume momentum setups. It replays historical one-minute OHLCV data as an unfolding chart, generates entry and exit signals, and evaluates performance through historical backtesting and paper-trading workflows.",
     contribution:
-      "I designed the research pipeline, modelling workflow and evaluation approach.",
-    stack: "Python · market data · quantitative research",
+      "I built a modular architecture that separates data ingestion, feature engineering, labelling, model algorithms and backtesting rules so each layer can evolve independently. The longer-term research direction is to explore scalable neural networks that learn chart behaviour, trade timing and market structure from historical stock data.",
+    stack: "Python · machine learning · OHLCV · backtesting",
     status: "PAUSED",
     statusTone: "amber",
     githubUrl: null,
