@@ -1,14 +1,15 @@
-# my_website (React)
+# Houtan Ghaebi — Portfolio
 
-This repository has been migrated from a static multi-page site to a React + Vite app.
+A responsive one-page portfolio built with React and Vite. The site presents current
+projects, professional experience, reading, music, language study, and other active
+learning in a compact interface designed for quick scanning and optional exploration.
 
-The original static files are preserved in `legacy/`:
-- `legacy/index.html`
-- `legacy/projects.html`
-- `legacy/contact.html`
-- `legacy/doing.html`
-- `legacy/style.css`
-- `legacy/script.js`
+## Structure
+
+- `src/components/` contains the header, project/work explorer, Now section, and footer.
+- `src/data/` contains the editable portfolio content.
+- `public/cv/` contains the downloadable CV.
+- `src/styles.css` contains the complete responsive visual system.
 
 ## Local development
 
@@ -17,23 +18,29 @@ npm install
 npm run dev
 ```
 
-Open the URL printed by Vite (usually `http://localhost:5173`).
+Open the URL printed by Vite, usually `http://localhost:5173`.
 
-## Production build check
+## Checks
 
 ```bash
+npm run lint
 npm run build
-npm run preview
 ```
 
 ## GitHub Pages deployment
 
-A workflow is included at `.github/workflows/deploy.yml`.
+A workflow is included at `.github/workflows/deploy.yml` and runs when `master` is
+pushed.
 
-1. Push to `main`.
+1. Push to `master`.
 2. In GitHub repo settings, set Pages source to `GitHub Actions`.
 3. The workflow builds and deploys `dist/` automatically.
 
-The workflow sets `VITE_BASE_PATH` automatically:
-- User site repo (`<user>.github.io`) -> `/`
-- Project repo (`my_website`) -> `/my_website/`
+The workflow sets `VITE_BASE_PATH` automatically for both user sites and project
+sites. Local development continues to use `/`.
+
+## Content placeholders
+
+Links that are not yet public are intentionally rendered as non-navigating placeholder
+controls. Update `src/data/links.js`, `src/data/projects.js`, and
+`src/data/learning.js` when the real destinations or audio files are ready.

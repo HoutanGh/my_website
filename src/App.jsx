@@ -1,21 +1,22 @@
-import { Navigate, Route, Routes } from "react-router-dom";
-import Layout from "./components/Layout";
-import ContactPage from "./pages/ContactPage";
-import DoingPage from "./pages/DoingPage";
-import HomePage from "./pages/HomePage";
-import ProjectsPage from "./pages/ProjectsPage";
+import Footer from "./components/Footer";
+import IdentityHeader from "./components/IdentityHeader";
+import NowSection from "./components/NowSection";
+import PortfolioExplorer from "./components/PortfolioExplorer";
+import Quote from "./components/Quote";
 
 function App() {
   return (
-    <Layout>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/projects" element={<ProjectsPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/doing" element={<DoingPage />} />
-        <Route path="*" element={<Navigate replace to="/" />} />
-      </Routes>
-    </Layout>
+    <div className="app-shell">
+      <IdentityHeader />
+      <main>
+        <Quote />
+        <div className="page-width">
+          <PortfolioExplorer />
+          <NowSection />
+        </div>
+      </main>
+      <Footer />
+    </div>
   );
 }
 
