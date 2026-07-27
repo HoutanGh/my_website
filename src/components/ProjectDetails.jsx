@@ -6,16 +6,25 @@ function ProjectDetails({ item, area }) {
   return (
     <section className="project-panel" aria-live="polite">
       <div className="project-content" key={`${area}-${item.id}`}>
-        {item.status ? (
-          <div className="snapshot-status">
-            <span className={`status-light ${item.statusTone}`} aria-hidden="true" />
-            {item.status}
-          </div>
-        ) : (
-          <div className="snapshot-status">{item.period}</div>
-        )}
+        <div className="snapshot-heading">
+          <h3 className="snapshot-title">{item.title}</h3>
+          {item.status ? (
+            <div className="snapshot-meta">
+              <div className="snapshot-status">
+                <span className={`status-light ${item.statusTone}`} aria-hidden="true" />
+                {item.status}
+              </div>
+              {isProject && item.started ? (
+                <span className="snapshot-dates">
+                  Started {item.started} · Last updated {item.updated}
+                </span>
+              ) : null}
+            </div>
+          ) : (
+            <div className="snapshot-status">{item.period}</div>
+          )}
+        </div>
 
-        <h3 className="snapshot-title">{item.title}</h3>
         <p className="snapshot-copy">{item.overview}</p>
         {!isProject ? <span className="snapshot-label">Responsibilities</span> : null}
         <p className={`snapshot-work${isProject ? " project-detail" : ""}`}>

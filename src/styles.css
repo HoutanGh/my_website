@@ -523,10 +523,21 @@ main > .page-width > .section:first-child {
   animation: content-in .24s var(--ease);
 }
 
+.snapshot-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 24px;
+  margin-bottom: 22px;
+}
+
+.snapshot-meta {
+  display: grid;
+  justify-items: end;
+  gap: 7px;
+}
+
 .snapshot-status {
-  position: absolute;
-  top: 32px;
-  right: 0;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -537,8 +548,21 @@ main > .page-width > .section:first-child {
   text-transform: uppercase;
 }
 
+.snapshot-meta .snapshot-status {
+  position: static;
+}
+
+.snapshot-dates {
+  color: var(--secondary);
+  font-size: 10px;
+  line-height: 1.35;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+
 .snapshot-title {
-  margin: 0 0 22px;
+  min-width: 0;
+  margin: 0;
   font-size: clamp(21px, 2.4vw, 30px);
   line-height: 1.22;
   font-weight: 500;
@@ -923,10 +947,22 @@ main > .page-width > .section:first-child {
     padding: 24px 0 12px;
   }
 
-  .snapshot-status {
-    position: static;
+  .snapshot-heading {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+
+  .snapshot-meta {
     width: fit-content;
-    margin: 0 0 14px auto;
+    margin-left: auto;
+    gap: 6px;
+  }
+
+  .snapshot-heading > .snapshot-status {
+    width: fit-content;
+    margin-left: auto;
   }
 
   .now-tabs {
