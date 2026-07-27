@@ -23,14 +23,13 @@ Open the URL printed by Vite, usually `http://localhost:5173`.
 ## Checks
 
 ```bash
-npm run lint
-npm run build
+npm run check
 ```
 
 ## GitHub Pages deployment
 
-A workflow is included at `.github/workflows/deploy.yml` and runs when `master` is
-pushed.
+A workflow is included at `.github/workflows/deploy.yml` and runs the same checks
+before deploying whenever `master` is pushed.
 
 1. Push to `master`.
 2. In GitHub repo settings, set Pages source to `GitHub Actions`.

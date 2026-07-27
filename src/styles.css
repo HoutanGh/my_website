@@ -257,8 +257,7 @@ main > .page-width > .section:first-child {
   font-size: 12px;
 }
 
-.inline-link,
-.project-link {
+.inline-link {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -273,8 +272,7 @@ main > .page-width > .section:first-child {
   transition: color .18s ease, border-color .18s ease;
 }
 
-.inline-link:hover,
-.project-link:hover {
+.inline-link:hover {
   color: var(--ink);
   border-color: var(--ink);
 }
