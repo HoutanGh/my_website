@@ -15,10 +15,8 @@ function OperatorItem({ status, children, action, active = false }) {
 
 function LearningGrid() {
   const trackRef = useRef(null);
-  const audioTimerRef = useRef(null);
   const scrollTimerRef = useRef(null);
   const [currentColumn, setCurrentColumn] = useState(0);
-  const [activeAudio, setActiveAudio] = useState(null);
 
   const columns = ["piano", "language", "study"];
 
@@ -49,7 +47,6 @@ function LearningGrid() {
     return () => {
       track.removeEventListener("scroll", handleScroll);
       window.clearTimeout(scrollTimerRef.current);
-      window.clearTimeout(audioTimerRef.current);
     };
   }, [updateCurrentColumn]);
 
@@ -66,12 +63,6 @@ function LearningGrid() {
     });
   };
 
-  const playReference = (id) => {
-    window.clearTimeout(audioTimerRef.current);
-    setActiveAudio(id);
-    audioTimerRef.current = window.setTimeout(() => setActiveAudio(null), 900);
-  };
-
   return (
     <>
       <div className="learning-stage">
@@ -85,15 +76,16 @@ function LearningGrid() {
                   status={piece.status}
                   active={piece.status === "LEARNING"}
                   action={(
-                    <button
+                    <a
                       className="play-button"
-                      type="button"
-                      title="Play reference audio"
-                      aria-label={`Play reference audio for ${piece.title}`}
-                      onClick={() => playReference(piece.id)}
+                      href={piece.youtubeUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      title="Play on YouTube"
+                      aria-label={`Play ${piece.title} on YouTube`}
                     >
-                      {activeAudio === piece.id ? "—" : <Icon name="play" />}
-                    </button>
+                      <Icon name="play" />
+                    </a>
                   )}
                 >
                   {piece.title}
