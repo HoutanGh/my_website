@@ -11,7 +11,8 @@ export const books = [
     status: "CURRENT",
     title: "Man and His Symbols",
     author: "C. G. Jung",
-    thought: thoughtPlaceholder,
+    thought:
+      "Find the actual patient examples given by Jung very interesting, sceptic of the divine nature of dreams but it was quite eye opening when he spoke about physical conditions and their condition to unaddressed unconsciousness. Still on Jung's section.",
   },
   {
     status: "CURRENT",
