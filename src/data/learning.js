@@ -35,5 +35,6 @@ export const learning = {
     title: "MIT: Principles of Macroeconomics",
     completed: 15,
     total: 25,
+    playlistUrl: "https://youtube.com/playlist?list=PLUl4u3cNGP62EXoZ4B3_Ob7lRRwpGQxkb&si=jR-YK-dpTrHjwfUX",
   },
 };
