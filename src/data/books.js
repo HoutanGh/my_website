@@ -62,4 +62,11 @@ export const books = [
     thought:
       "Honestly, it is a truly disturbing book. I can't believe this was one of the books we went through in Year 9.",
   },
+  {
+    status: "READ",
+    title: "Gulag Archipelago",
+    author: "Aleksandr Solzhenitsyn",
+    thought:
+      "It almost read like fiction, I had to remind myself that this really happened.",
+  },
 ];
