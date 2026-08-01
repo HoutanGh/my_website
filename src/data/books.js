@@ -19,13 +19,15 @@ export const books = [
     title: "ماهی سیاه کوچولو",
     author: "Samad Behrangi",
     rtl: true,
-    thought: thoughtPlaceholder,
+    thought:
+      "The lack of vowels and ezafes in the words makes it very difficult to learn. It becomes more about knowing as many words as possible rather than simply knowing the alphabet and learning from there.",
   },
   {
     status: "LISTENING",
     title: "Bible",
     author: "—",
-    thought: thoughtPlaceholder,
+    thought:
+      "Trying to go through it as one would go through Homer's Odyssey—a deeply enriched work of literature.",
   },
   {
     status: "PARKED",
