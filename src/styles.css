@@ -678,6 +678,56 @@ main > .page-width > .section:first-child {
   font-weight: 500;
 }
 
+.book-title-wrap {
+  display: inline-grid;
+  width: min(100%, 430px);
+  cursor: default;
+}
+
+.book-title-text {
+  transition: color .2s var(--ease), transform .2s var(--ease);
+}
+
+.book-thought {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transform: translateY(-4px);
+  color: var(--secondary);
+  direction: ltr;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1.55;
+  text-align: left;
+  transition: grid-template-rows .24s var(--ease), opacity .18s ease, transform .24s var(--ease);
+}
+
+.book-thought-inner {
+  min-height: 0;
+  overflow: hidden;
+  padding-top: 0;
+  transition: padding-top .24s var(--ease);
+}
+
+.book-title-wrap:hover .book-title-text,
+.book-title-wrap:focus-visible .book-title-text {
+  color: var(--green);
+  transform: translateX(3px);
+}
+
+.book-title-wrap:hover .book-thought,
+.book-title-wrap:focus-visible .book-thought {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.book-title-wrap:hover .book-thought-inner,
+.book-title-wrap:focus-visible .book-thought-inner {
+  padding-top: 4px;
+}
+
 .book-list td:last-child {
   width: 240px;
   color: var(--secondary);
