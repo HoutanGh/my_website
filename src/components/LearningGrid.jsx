@@ -114,7 +114,11 @@ function LearningGrid() {
               <OperatorItem
                 status={learning.study.status}
                 active
-                action={<ProjectLink href={null}>{learning.study.completed} / {learning.study.total}</ProjectLink>}
+                action={(
+                  <ProjectLink href={learning.study.playlistUrl}>
+                    {learning.study.completed} / {learning.study.total}
+                  </ProjectLink>
+                )}
               >
                 {learning.study.title}
               </OperatorItem>
