@@ -13,7 +13,14 @@ function ReadingList() {
                     [{book.status}]
                   </span>
                 </td>
-                <td className={book.rtl ? "rtl" : undefined}>{book.title}</td>
+                <td className={book.rtl ? "book-title-cell rtl" : "book-title-cell"}>
+                  <span className="book-title-wrap" tabIndex="0">
+                    <span className="book-title-text">{book.title}</span>
+                    <span className="book-thought">
+                      <span className="book-thought-inner">{book.thought}</span>
+                    </span>
+                  </span>
+                </td>
                 <td>{book.author}</td>
               </tr>
             ))}
