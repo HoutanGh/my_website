@@ -100,7 +100,6 @@ function LearningGrid() {
               <OperatorItem
                 status={learning.language.status}
                 active
-                action={<ProjectLink href={null}>book</ProjectLink>}
               >
                 {learning.language.prefix}{" "}
                 <span className="rtl">{learning.language.title}</span>
