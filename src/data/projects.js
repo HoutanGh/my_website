@@ -30,7 +30,7 @@ export const projects = [
     started: "17/05/25",
     updated: "13/11/25",
     githubUrl: null,
-    siteUrl: null,
+    siteUrl: "https://acuhealthmaster.co.uk/",
     hasGithub: true,
     hasSite: true,
   },
