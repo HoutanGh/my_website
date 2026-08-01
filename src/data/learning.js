@@ -33,7 +33,7 @@ export const learning = {
   study: {
     status: "IN PROGRESS",
     title: "MIT: Principles of Macroeconomics",
-    completed: 15,
+    completed: 18,
     total: 25,
     playlistUrl: "https://youtube.com/playlist?list=PLUl4u3cNGP62EXoZ4B3_Ob7lRRwpGQxkb&si=jR-YK-dpTrHjwfUX",
   },
