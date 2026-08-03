@@ -53,7 +53,7 @@ export const projects = [
   },
   {
     id: "village",
-    title: "village-square",
+    title: "town-square",
     short: "A community platform concept.",
     overview: "A private community platform concept.",
     contribution: "Private project",
