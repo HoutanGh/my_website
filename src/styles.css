@@ -648,6 +648,10 @@ main > .page-width > .section:first-child {
   animation: content-in .24s var(--ease);
 }
 
+.reading-stage {
+  position: relative;
+}
+
 .book-list {
   width: 100%;
   border-collapse: collapse;
@@ -678,54 +682,128 @@ main > .page-width > .section:first-child {
   font-weight: 500;
 }
 
-.book-title-wrap {
-  display: inline-grid;
-  width: min(100%, 430px);
-  cursor: default;
+.book-title-button {
+  display: inline-flex;
+  max-width: 100%;
+  align-items: center;
+  gap: 7px;
+  padding: 0;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  text-align: inherit;
 }
 
 .book-title-text {
   transition: color .2s var(--ease), transform .2s var(--ease);
 }
 
-.book-thought {
-  display: grid;
-  grid-template-rows: 0fr;
-  opacity: 0;
-  transform: translateY(-4px);
-  color: var(--secondary);
-  direction: ltr;
-  font-family: var(--mono);
-  font-size: 10px;
-  font-weight: 400;
-  line-height: 1.55;
-  text-align: left;
-  transition: grid-template-rows .24s var(--ease), opacity .18s ease, transform .24s var(--ease);
-}
-
-.book-thought-inner {
-  min-height: 0;
-  overflow: hidden;
-  padding-top: 0;
-  transition: padding-top .24s var(--ease);
-}
-
-.book-title-wrap:hover .book-title-text,
-.book-title-wrap:focus-visible .book-title-text {
+.book-title-button:hover .book-title-text,
+.book-title-button[aria-expanded="true"] .book-title-text {
   color: var(--green);
-  transform: translateX(3px);
+  transform: translateX(2px);
 }
 
-.book-title-wrap:hover .book-thought,
-.book-title-wrap:focus-visible .book-thought {
-  grid-template-rows: 1fr;
+.book-comment-card {
+  position: absolute;
+  z-index: 3;
+  top: 12px;
+  left: 12px;
+  width: min(370px, calc(100% - 24px));
+  max-height: calc(100% - 24px);
+  display: grid;
+  grid-template-rows: auto minmax(0, auto);
+  padding: 16px;
+  color: var(--ink);
+  background: rgba(244, 244, 244, .98);
+  border: 1px solid var(--rule-strong);
+  box-shadow: 0 14px 36px rgba(51, 51, 51, .12);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(3px);
+  pointer-events: none;
+  transition: opacity .18s ease, transform .18s var(--ease), visibility 0s linear .18s;
+}
+
+.book-comment-card.is-visible {
   opacity: 1;
+  visibility: visible;
   transform: translateY(0);
+  pointer-events: auto;
+  transition-delay: 0s;
 }
 
-.book-title-wrap:hover .book-thought-inner,
-.book-title-wrap:focus-visible .book-thought-inner {
-  padding-top: 4px;
+.book-comment-toolbar,
+.book-comment-navigation,
+.book-comment-arrows {
+  display: flex;
+  align-items: center;
+}
+
+.book-comment-toolbar {
+  justify-content: space-between;
+}
+
+.book-comment-navigation {
+  gap: 10px;
+}
+
+.book-comment-date {
+  color: var(--green);
+  font-size: 9px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.book-comment-copy {
+  margin: 12px 0 0;
+  overflow-y: auto;
+  color: var(--secondary);
+  font-size: 11px;
+  line-height: 1.65;
+  scrollbar-color: var(--rule-strong) transparent;
+  scrollbar-width: thin;
+  transition: height .2s var(--ease);
+}
+
+.book-comment-copy-inner {
+  display: block;
+  animation: book-comment-in .18s ease;
+}
+
+@keyframes book-comment-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.book-comment-index {
+  color: var(--secondary);
+  font-size: 9px;
+}
+
+.book-comment-arrows {
+  gap: 6px;
+}
+
+.book-comment-arrows button {
+  width: 28px;
+  height: 24px;
+  padding: 0;
+  color: var(--secondary);
+  background: transparent;
+  border: 1px solid var(--rule-strong);
+  cursor: pointer;
+}
+
+.book-comment-arrows button:hover:not(:disabled) {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+.book-comment-arrows button:disabled {
+  opacity: .28;
+  cursor: default;
 }
 
 .book-list td:last-child {
