@@ -30,11 +30,22 @@ export const learning = {
     prefix: "Reading",
     title: "ماهی سیاه کوچولو",
   },
-  study: {
-    status: "IN PROGRESS",
-    title: "MIT: Principles of Macroeconomics",
-    completed: 25,
-    total: 25,
-    playlistUrl: "https://youtube.com/playlist?list=PLUl4u3cNGP62EXoZ4B3_Ob7lRRwpGQxkb&si=jR-YK-dpTrHjwfUX",
-  },
+  study: [
+    {
+      id: "mit-finance-mathematics",
+      status: "IN PROGRESS",
+      title: "MIT: Topics in Mathematics with Applications in Finance",
+      completed: 6,
+      total: 22,
+      playlistUrl: "https://www.youtube.com/playlist?list=PLUl4u3cNGP601Q2jo-J_3raNCMMs6Jves",
+    },
+    {
+      id: "mit-macroeconomics",
+      status: "COMPLETE",
+      title: "MIT: Principles of Macroeconomics",
+      completed: 25,
+      total: 25,
+      playlistUrl: "https://youtube.com/playlist?list=PLUl4u3cNGP62EXoZ4B3_Ob7lRRwpGQxkb&si=jR-YK-dpTrHjwfUX",
+    },
+  ],
 };

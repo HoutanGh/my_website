@@ -110,17 +110,20 @@ function LearningGrid() {
           <section className="learning-column" aria-labelledby="learning-study">
             <h3 className="learning-column-title" id="learning-study">Study</h3>
             <div className="operator-list">
-              <OperatorItem
-                status={learning.study.status}
-                active
-                action={(
-                  <ProjectLink href={learning.study.playlistUrl}>
-                    {learning.study.completed} / {learning.study.total}
-                  </ProjectLink>
-                )}
-              >
-                {learning.study.title}
-              </OperatorItem>
+              {learning.study.map((course) => (
+                <OperatorItem
+                  key={course.id}
+                  status={course.status}
+                  active={course.status === "IN PROGRESS"}
+                  action={(
+                    <ProjectLink href={course.playlistUrl}>
+                      {course.completed} / {course.total}
+                    </ProjectLink>
+                  )}
+                >
+                  {course.title}
+                </OperatorItem>
+              ))}
             </div>
           </section>
         </div>
