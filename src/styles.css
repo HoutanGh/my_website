@@ -815,12 +815,11 @@ main > .page-width > .section:first-child {
   font-size: 15px;
   line-height: 1;
   cursor: pointer;
-  transition: opacity 160ms ease, transform 160ms ease;
+  transition: opacity 160ms ease;
 }
 
 .book-comment-arrows button:hover:not(:disabled) {
   opacity: .65;
-  transform: translateY(-1px);
 }
 
 .book-comment-arrows button:disabled {
