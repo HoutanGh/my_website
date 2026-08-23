@@ -5,6 +5,10 @@ export const books = [
     author: "J. R. R. Tolkien",
     comments: [
       {
+        date: "2026-08-23",
+        text: " The book is about answering your call to advenuture. It is interesting that Tolkien continues to persist Biblo's wishfulness in being back home. You can think of the comfort you once had, you can wish that it was easier, it doesn't matter, so long as you answer the call",
+      },
+      {
         date: "2026-08-01",
         text: "I should up my riddle game.",
       },
@@ -40,6 +44,11 @@ export const books = [
     title: "Bible",
     author: "—",
     comments: [
+      {
+        date: "2026-08-23",
+        text:
+          "I like Proverbs",
+      },
       {
         date: "2026-08-01",
         text:

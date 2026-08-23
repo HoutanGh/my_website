@@ -787,18 +787,24 @@ main > .page-width > .section:first-child {
 }
 
 .book-comment-arrows button {
-  width: 28px;
-  height: 24px;
+  display: grid;
+  width: 20px;
+  height: 20px;
   padding: 0;
-  color: var(--secondary);
+  place-items: center;
+  color: var(--green);
   background: transparent;
-  border: 1px solid var(--rule-strong);
+  border: 0;
+  font: inherit;
+  font-size: 15px;
+  line-height: 1;
   cursor: pointer;
+  transition: opacity 160ms ease, transform 160ms ease;
 }
 
 .book-comment-arrows button:hover:not(:disabled) {
-  color: var(--ink);
-  border-color: var(--ink);
+  opacity: .65;
+  transform: translateY(-1px);
 }
 
 .book-comment-arrows button:disabled {
