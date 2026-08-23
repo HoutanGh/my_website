@@ -734,6 +734,22 @@ main > .page-width > .section:first-child {
   transition-delay: 0s;
 }
 
+.book-comment-card::before {
+  position: absolute;
+  top: -2px;
+  bottom: -2px;
+  width: 12px;
+  content: "";
+}
+
+.book-comment-card[data-side="right"]::before {
+  right: 100%;
+}
+
+.book-comment-card[data-side="left"]::before {
+  left: 100%;
+}
+
 .book-comment-toolbar,
 .book-comment-navigation,
 .book-comment-arrows {
@@ -788,8 +804,8 @@ main > .page-width > .section:first-child {
 
 .book-comment-arrows button {
   display: grid;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   padding: 0;
   place-items: center;
   color: var(--green);

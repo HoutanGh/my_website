@@ -1,11 +1,12 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { books } from "../data/books";
 
 const CARD_WIDTH = 370;
-const CARD_HEIGHT = 220;
 const CARD_GAP = 10;
 const CARD_INSET = 12;
 const COMMENT_MAX_HEIGHT = 150;
+const VIEWPORT_INSET = 8;
+const CLOSE_DELAY = 120;
 
 const commentDate = new Intl.DateTimeFormat("en-GB", {
   day: "2-digit",
@@ -24,16 +25,84 @@ function formatCommentDate(date) {
 
 function ReadingList() {
   const stageRef = useRef(null);
+  const scrollRef = useRef(null);
+  const cardRef = useRef(null);
   const commentContentRef = useRef(null);
+  const activeAnchorRef = useRef(null);
+  const closeTimerRef = useRef(null);
   const [activeBookIndex, setActiveBookIndex] = useState(null);
   const [activeCommentIndex, setActiveCommentIndex] = useState(0);
   const [isCommentOpen, setIsCommentOpen] = useState(false);
   const [cardPosition, setCardPosition] = useState({ top: CARD_INSET, left: CARD_INSET });
+  const [cardSide, setCardSide] = useState("right");
   const [commentHeight, setCommentHeight] = useState(0);
 
   const activeBook = activeBookIndex === null ? null : books[activeBookIndex];
   const comments = activeBook ? datedComments(activeBook) : [];
   const activeComment = comments[activeCommentIndex] ?? null;
+
+  const positionCard = useCallback(() => {
+    const stage = stageRef.current;
+    const card = cardRef.current;
+    const anchor = activeAnchorRef.current;
+
+    if (!stage || !card || !anchor) return;
+
+    const stageBox = stage.getBoundingClientRect();
+    const anchorBox = anchor.getBoundingClientRect();
+    const cardBox = card.getBoundingClientRect();
+    const toolbarBox = card.querySelector(".book-comment-toolbar")?.getBoundingClientRect();
+    const width = cardBox.width || Math.min(CARD_WIDTH, stageBox.width - (CARD_INSET * 2));
+    const height = cardBox.height;
+    const rightSide = anchorBox.right - stageBox.left + CARD_GAP;
+    const leftSide = anchorBox.left - stageBox.left - width - CARD_GAP;
+    const canFitRight = rightSide + width <= stageBox.width - CARD_INSET;
+    const canFitLeft = leftSide >= CARD_INSET;
+    let left;
+    let side;
+
+    if (canFitRight) {
+      left = rightSide;
+      side = "right";
+    } else if (canFitLeft) {
+      left = leftSide;
+      side = "left";
+    } else {
+      left = Math.min(
+        Math.max(CARD_INSET, anchorBox.left - stageBox.left),
+        Math.max(CARD_INSET, stageBox.width - width - CARD_INSET),
+      );
+      side = "overlap";
+    }
+
+    const toolbarCenter = toolbarBox
+      ? toolbarBox.top - cardBox.top + (toolbarBox.height / 2)
+      : CARD_INSET;
+    const desiredViewportTop = anchorBox.top + (anchorBox.height / 2) - toolbarCenter;
+    const maxViewportTop = Math.max(VIEWPORT_INSET, window.innerHeight - height - VIEWPORT_INSET);
+    const viewportTop = Math.min(
+      Math.max(VIEWPORT_INSET, desiredViewportTop),
+      maxViewportTop,
+    );
+
+    setCardPosition({ top: viewportTop - stageBox.top, left });
+    setCardSide(side);
+  }, []);
+
+  const cancelClose = () => {
+    if (closeTimerRef.current !== null) {
+      window.clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+  };
+
+  const scheduleClose = () => {
+    cancelClose();
+    closeTimerRef.current = window.setTimeout(() => {
+      setIsCommentOpen(false);
+      closeTimerRef.current = null;
+    }, CLOSE_DELAY);
+  };
 
   useEffect(() => {
     if (!isCommentOpen) return undefined;
@@ -58,27 +127,27 @@ function ReadingList() {
     setCommentHeight(Math.min(commentContentRef.current.scrollHeight, COMMENT_MAX_HEIGHT));
   }, [activeComment]);
 
+  useLayoutEffect(() => {
+    if (isCommentOpen) positionCard();
+  }, [activeBookIndex, activeCommentIndex, commentHeight, isCommentOpen, positionCard]);
+
+  useEffect(() => {
+    if (!isCommentOpen) return undefined;
+
+    const scrollArea = scrollRef.current;
+    window.addEventListener("resize", positionCard);
+    scrollArea?.addEventListener("scroll", positionCard, { passive: true });
+    return () => {
+      window.removeEventListener("resize", positionCard);
+      scrollArea?.removeEventListener("scroll", positionCard);
+    };
+  }, [isCommentOpen, positionCard]);
+
+  useEffect(() => () => cancelClose(), []);
+
   const openBook = (index, anchor) => {
-    const stage = stageRef.current;
-
-    if (stage && anchor) {
-      const stageBox = stage.getBoundingClientRect();
-      const anchorBox = anchor.getBoundingClientRect();
-      const width = Math.min(CARD_WIDTH, stageBox.width - (CARD_INSET * 2));
-      const height = Math.min(CARD_HEIGHT, stageBox.height - (CARD_INSET * 2));
-      const rightSide = anchorBox.right - stageBox.left + CARD_GAP;
-      const leftSide = anchorBox.left - stageBox.left - width - CARD_GAP;
-      const left = rightSide + width <= stageBox.width - CARD_INSET
-        ? rightSide
-        : Math.max(CARD_INSET, leftSide);
-      const top = Math.min(
-        Math.max(CARD_INSET, anchorBox.top - stageBox.top - CARD_INSET),
-        stageBox.height - height - CARD_INSET,
-      );
-
-      setCardPosition({ top, left });
-    }
-
+    cancelClose();
+    activeAnchorRef.current = anchor;
     setActiveBookIndex(index);
     setActiveCommentIndex(0);
     setIsCommentOpen(true);
@@ -89,9 +158,15 @@ function ReadingList() {
       <div
         className="reading-stage"
         ref={stageRef}
-        onMouseLeave={() => setIsCommentOpen(false)}
+        onMouseEnter={cancelClose}
+        onMouseLeave={scheduleClose}
       >
-        <div className="book-scroll" tabIndex="0" aria-label="Scrollable reading list">
+        <div
+          className="book-scroll"
+          ref={scrollRef}
+          tabIndex="0"
+          aria-label="Scrollable reading list"
+        >
           <table className="book-list">
             <tbody>
               {books.map((book, index) => {
@@ -127,10 +202,14 @@ function ReadingList() {
 
         <aside
           className={`book-comment-card${isCommentOpen ? " is-visible" : ""}`}
+          ref={cardRef}
           id="book-comment-card"
           aria-hidden={!isCommentOpen}
           aria-live="polite"
+          data-side={cardSide}
           style={cardPosition}
+          onMouseEnter={cancelClose}
+          onMouseLeave={scheduleClose}
         >
           {activeComment ? (
             <>
