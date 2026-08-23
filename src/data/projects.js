@@ -52,6 +52,23 @@ export const projects = [
     hasSite: false,
   },
   {
+    id: "discord-focus",
+    title: "discord-focus",
+    short: "A distraction-free reading mode for Discord Web.",
+    overview:
+      "A local-only browser extension that reduces Discord Web to the active text conversation while preserving native threads, menus, dialogs, popouts and Ctrl+K navigation.",
+    contribution:
+      "I built a Firefox-first Manifest V3 WebExtension with independent navigation and message-box controls, privacy-safe per-channel preferences and fail-open layout detection that survives Discord's SPA rerenders. A Chrome build is generated from the same vanilla JavaScript source.",
+    stack: "JavaScript · WebExtensions · Firefox · Chrome · Node.js",
+    status: "LIVE · BUILDING",
+    statusTone: "green",
+    started: "25/06/26",
+    updated: "22/08/26",
+    githubUrl: "https://github.com/HoutanGh/discord-focus",
+    hasGithub: true,
+    hasSite: false,
+  },
+  {
     id: "village",
     title: "town-square",
     short: "A community platform concept.",
