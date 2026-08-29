@@ -15,7 +15,7 @@ const commentDate = new Intl.DateTimeFormat("en-GB", {
 });
 
 function datedComments(book) {
-  return [...(book.comments ?? [])].sort((a, b) => b.date.localeCompare(a.date));
+  return [...(book.comments ?? [])].sort((a, b) => a.date.localeCompare(b.date));
 }
 
 function formatCommentDate(date) {
@@ -221,8 +221,8 @@ function ReadingList() {
                   <div className="book-comment-arrows" aria-label="Browse dated comments">
                     <button
                       type="button"
-                      aria-label="Newer comment"
-                      title="Newer comment"
+                      aria-label="Older comment"
+                      title="Older comment"
                       tabIndex={isCommentOpen ? 0 : -1}
                       disabled={activeCommentIndex === 0}
                       onClick={() => setActiveCommentIndex((index) => index - 1)}
@@ -231,8 +231,8 @@ function ReadingList() {
                     </button>
                     <button
                       type="button"
-                      aria-label="Older comment"
-                      title="Older comment"
+                      aria-label="Newer comment"
+                      title="Newer comment"
                       tabIndex={isCommentOpen ? 0 : -1}
                       disabled={activeCommentIndex === comments.length - 1}
                       onClick={() => setActiveCommentIndex((index) => index + 1)}

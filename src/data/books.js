@@ -6,7 +6,7 @@ export const books = [
     comments: [
       {
         date: "2026-08-23",
-        text: " The book is about answering your call to advenuture. It is interesting that Tolkien continues to persist Biblo's wishfulness in being back home. You can think of the comfort you once had, you can wish that it was easier, it doesn't matter, so long as you answer the call",
+        text: " The book is about answering your call to advenuture. It is interesting that Tolkien continues to persist Biblo's wishfulness in being back home. You can think of the comfort you once had, you can wish that it was easier, it doesn't matter, so long as you answer the call.",
       },
       {
         date: "2026-08-01",
@@ -19,6 +19,11 @@ export const books = [
     title: "Man and His Symbols",
     author: "C. G. Jung",
     comments: [
+      {
+        date: "2026-08-29",
+        text:
+          "The conclusions that are drawn from the dreams interest me more than the actual dreams. I can't seem to relate to these extremely deep dreams at all, and my skepticism of if it seems to be growing. Maybe my Ego has been completely integrated and there is nothing to work on! I doubt it.",
+      },
       {
         date: "2026-08-01",
         text:
@@ -36,6 +41,11 @@ export const books = [
         date: "2026-08-01",
         text:
           "The lack of vowels (ezafes) in the words makes it very difficult to learn. It becomes more about knowing as many words as possible rather than simply knowing the alphabet and learning from there.",
+      },
+      {
+        date: "2026-08-29",
+        text:
+          "Foundations of this book are quite similar to The Hobbit. Bilbo and the small black fish, however, are polar opposites. The small black fish wants to leave the house and adventure where as Bilbo doesn't. One view is that the small black fish has fully integrated his Gandalf where as Bilbo is still fighting that part of this pysche.",
       },
     ],
   },
