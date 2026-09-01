@@ -1,16 +1,12 @@
 export const books = [
   {
     status: "CURRENT",
-    title: "The Hobbit",
-    author: "J. R. R. Tolkien",
+    title: "Confessions",
+    author: "St. Augustine",
     comments: [
       {
-        date: "2026-08-23",
-        text: " The book is about answering your call to advenuture. It is interesting that Tolkien continues to persist Biblo's wishfulness in being back home. You can think of the comfort you once had, you can wish that it was easier, it doesn't matter, so long as you answer the call.",
-      },
-      {
-        date: "2026-08-01",
-        text: "I should up my riddle game.",
+        date: "2026-09-01",
+        text: "I am using this to fill in the gaps in my days instead of going on my phone.",
       },
     ],
   },
@@ -86,6 +82,21 @@ export const books = [
       {
         date: "2026-08-01",
         text: "Barely started.",
+      },
+    ],
+  },
+  {
+    status: "READ",
+    title: "The Hobbit",
+    author: "J. R. R. Tolkien",
+    comments: [
+      {
+        date: "2026-08-23",
+        text: " The book is about answering your call to advenuture. It is interesting that Tolkien continues to persist Biblo's wishfulness in being back home. You can think of the comfort you once had, you can wish that it was easier, it doesn't matter, so long as you answer the call.",
+      },
+      {
+        date: "2026-08-01",
+        text: "I should up my riddle game.",
       },
     ],
   },
