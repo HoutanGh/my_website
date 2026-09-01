@@ -12,6 +12,18 @@ export const books = [
   },
   {
     status: "CURRENT",
+    title: "Don Quixote",
+    author: "Miguel de Cervantes",
+    comments: [
+      {
+        date: "2026-08-01",
+        text:
+          "Slowed down my reading, as I've read that in those days excerpts of books like this were released periodically, weekly or monthly in articles, like TV shows nowadays. So it shouldn't really be read as an entire block of text.",
+      },
+    ],
+  },
+  {
+    status: "CURRENT",
     title: "Man and His Symbols",
     author: "C. G. Jung",
     comments: [
@@ -59,18 +71,6 @@ export const books = [
         date: "2026-08-01",
         text:
           "Trying to go through it as one would go through Homer's Odyssey - a deeply enriched work of literature.",
-      },
-    ],
-  },
-  {
-    status: "PARKED",
-    title: "Don Quixote",
-    author: "Miguel de Cervantes",
-    comments: [
-      {
-        date: "2026-08-01",
-        text:
-          "Slowed down my reading, as I've read that in those days excerpts of books like this were released periodically, weekly or monthly in articles, like TV shows nowadays. So it shouldn't really be read as an entire block of text.",
       },
     ],
   },
