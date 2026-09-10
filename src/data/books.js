@@ -5,6 +5,10 @@ export const books = [
     author: "St. Augustine",
     comments: [
       {
+        date: "2026-09-10",
+        text: "Never seen someone have so much doubt in themselves, but no doubt in God. I guess that is the essence of being Christian.",
+      },
+      {
         date: "2026-09-01",
         text: "I am using this to fill in the gaps in my days instead of going on my phone.",
       },
