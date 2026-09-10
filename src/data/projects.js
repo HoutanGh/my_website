@@ -17,6 +17,23 @@ export const projects = [
     hasSite: false,
   },
   {
+    id: "live-read-translate",
+    title: "live-read-translate",
+    short: "Web comics in a native reader, with on-device translation.",
+    overview:
+      "An iPhone app I'm building to bring comic chapters from supported websites into a clean native reader. It downloads chapters for offline reading, remembers my place and translates Korean text into English directly on the phone. I can switch between original and translated pages without losing my reading position.",
+    contribution:
+      "I'm connecting chapter discovery, local downloads and a resumable translation pipeline using Apple's text recognition and translation tools. The ongoing challenge is replacing speech-bubble text while preserving the artwork, handling bubbles split across image strips and making missed or failed translations easy to review and retry.",
+    stack: "Swift · SwiftUI · WebKit · Vision · Apple Translation",
+    status: "IN PROGRESS",
+    statusTone: "amber",
+    started: "07/09/26",
+    updated: "09/09/26",
+    githubUrl: null,
+    hasGithub: false,
+    hasSite: false,
+  },
+  {
     id: "acupuncture",
     title: "Acupuncture Website",
     short: "A completed client website.",
