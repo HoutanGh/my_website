@@ -27,10 +27,25 @@ export const books = [
     ],
   },
   {
-    status: "CURRENT",
+    status: "READ",
     title: "Man and His Symbols",
     author: "C. G. Jung",
     comments: [
+      {
+        date: "2026-09-19",
+        text:
+          "My dismissive tone isn't just restricted to the higher-power claim; I tend to look down on other sciences compared to physics and mathematics. The book calls me out on this by providing renowned physicists who have not only shown interest in this Jungian topic but have actively engaged with people in his field, and even Jung himself.",
+      },
+      {
+        date: "2026-09-12",
+        text:
+          "The connection between psychology and the insinuation of an underlying higher power is something I struggle to accept without an adolescent, dismissive attitude. To me, it seems comparable to when we studied novels in school and people offered endless interpretations with different levels of profoundness. At some point, there is a realisation that the author could not have intended all these underlying and extremely interesting ideas. I acknowledge that Jung and his students are aware of this and would tie it back to an archetypal intention from the author's unconscious.",
+      },
+      {
+        date: "2026-09-05",
+        text:
+          "The analysis of one of the author's clients, Henry, was interesting. We are quite similar in terms of circumstances and age, and even though our conscious situations are quite different, we seem to have similar unconscious attributes that need addressing. While I, as stated before, do not relate to the level of depth that dreams in this book seem to possess, the conclusions and usefulness of the final analysis seem to be independent of the user's actual dreams. The conclusions I drew for myself are to actively choose discomfort in order to progress—being a fool is a precursor to being a hero. I know this, but it is always nice to read or hear.",
+      },
       {
         date: "2026-08-29",
         text:
