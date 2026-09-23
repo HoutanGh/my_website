@@ -5,6 +5,10 @@ export const books = [
     author: "St. Augustine",
     comments: [
       {
+        date: "2026-09-16",
+        text: "I wouldn't recommend this to an atheist, I think the religious fanaticism would be an instant turn off that would stop them from gaining anything of value. For some reason Christian fanaticism seems to be a trigger point for many people. Once you look past that, you can really see the human side of Augustine, the doubt, the confidence, the sorrow and the happiness. And beyond that, you can really learning something.",
+      },
+      {
         date: "2026-09-10",
         text: "Never seen someone have so much doubt in themselves, but no doubt in God. I guess that is the essence of being Christian.",
       },
