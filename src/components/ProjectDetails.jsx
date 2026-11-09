@@ -26,10 +26,9 @@ function ProjectDetails({ item, area }) {
         </div>
 
         <p className="snapshot-copy">{item.overview}</p>
-        {!isProject ? <span className="snapshot-label">Responsibilities</span> : null}
-        <p className={`snapshot-work${isProject ? " project-detail" : ""}`}>
-          {item.contribution}
-        </p>
+        {isProject ? (
+          <p className="snapshot-work project-detail">{item.contribution}</p>
+        ) : null}
 
         {isProject && (item.hasGithub || item.hasSite) ? (
           <div className="snapshot-links">

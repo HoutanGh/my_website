@@ -2,23 +2,19 @@ export const work = [
   {
     id: "vmo2",
     title: "Virgin Media O2",
-    short: "Technical Business Analyst / Acting Product Owner.",
+    short: "Technical Business Analyst / Product Owner.",
     overview:
-      "I work across network-automation teams at Virgin Media O2, sitting between engineering, operations and delivery. My role is to turn complex network behaviour, workflow gaps and production issues into clear decisions and buildable work.",
-    contribution:
-      "I analyse network migration, firmware and service-provisioning workflows; define validation, failure and rollback behaviour; investigate production gaps; and coordinate priorities, ticket readiness and delivery for a senior engineering squad.",
-    stack: "Network automation · workflow design · delivery ownership",
+      "I work as a Business Analyst across three B2B network automation squads. For one squad of eight senior engineers and one tester, I served as both Business Analyst and Product Owner. I helped set priorities, refine the backlog and prepare tickets for development. I also review service provisioning workflows and helped document the checks and rollback requirements for a programme to migrate approximately 2,500 network devices.",
+    stack: "Requirements analysis · Process mapping · Acceptance criteria · Backlog refinement · Prioritisation · Stakeholder management · Delivery coordination · Cisco NSO · Itential",
     period: "Nov 2024—present",
   },
   {
     id: "healthmaster",
-    title: "Healthmaster",
+    title: "Healthmaster Clinic",
     short: "Technical Lead · family-owned clinic.",
     overview:
-      "I lead the technical side of Healthmaster Clinic, a family-owned healthcare business. Working directly with the people who run the clinic means translating practical operational needs into simple, maintainable digital tools.",
-    contribution:
-      "I owned the clinic website from requirements and UX through backend development, deployment and iteration, including its enquiry workflow and resilient email delivery.",
-    stack: "FastAPI · responsive web · SMTP/SendGrid · deployment",
+      "I designed, built and launched a mobile-first website for my family’s clinic. I worked with the clinic team to agree what the site needed and made updates based on their feedback. When a visitor submits an enquiry, the site emails it to the clinic. If the main email service fails, the site uses SendGrid to send the message.",
+    stack: "Requirements gathering · User experience · Stakeholder feedback · Product delivery · FastAPI · SendGrid",
     period: "Apr 2020—present · part-time",
   },
 ];

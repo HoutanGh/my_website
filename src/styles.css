@@ -577,15 +577,6 @@ main > .page-width > .section:first-child {
   line-height: 1.75;
 }
 
-.snapshot-label {
-  display: block;
-  margin-bottom: 7px;
-  color: var(--secondary);
-  font-size: 9px;
-  letter-spacing: .09em;
-  text-transform: uppercase;
-}
-
 .snapshot-work {
   margin: 0 0 24px;
   font-size: 12px;
