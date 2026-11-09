@@ -293,7 +293,6 @@ main > .page-width > .section:first-child {
 .project-list-shell {
   position: relative;
   min-width: 0;
-  height: 390px;
 }
 
 .project-list-shell::after {
@@ -303,9 +302,9 @@ main > .page-width > .section:first-child {
   right: 1px;
   bottom: 0;
   left: 0;
-  height: 74px;
+  height: 36px;
   pointer-events: none;
-  background: linear-gradient(to bottom, transparent, var(--paper) 82%);
+  background: linear-gradient(to bottom, transparent, var(--paper));
   opacity: 0;
   transition: opacity .18s ease;
 }
@@ -315,8 +314,8 @@ main > .page-width > .section:first-child {
 }
 
 .project-list {
-  height: 100%;
-  max-height: 100%;
+  position: absolute;
+  inset: 0;
   overflow-y: auto;
   border-right: 1px solid var(--rule-strong);
   scrollbar-color: var(--rule-strong) transparent;
@@ -1122,21 +1121,16 @@ main > .page-width > .section:first-child {
   }
 
   .project-list {
+    position: static;
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: minmax(146px, 1fr);
     grid-template-columns: none;
-    height: auto;
-    max-height: none;
     overflow-x: auto;
     overflow-y: hidden;
     border-right: 0;
     border-bottom: 1px solid var(--rule-strong);
     scrollbar-width: thin;
-  }
-
-  .project-list-shell {
-    height: auto;
   }
 
   .project-list-shell::after {
