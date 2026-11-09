@@ -2,33 +2,42 @@ import ProjectLink from "./ProjectLink";
 
 function ProjectDetails({ item, area }) {
   const isProject = area === "projects";
+  const terms = isProject ? item.stack.split(" · ") : item.keywords;
 
   return (
     <section className="project-panel" aria-live="polite">
       <div className="project-content" key={`${area}-${item.id}`}>
         <div className="snapshot-heading">
           <h3 className="snapshot-title">{item.title}</h3>
-          {item.status ? (
-            <div className="snapshot-meta">
+          <div className="snapshot-meta">
+            {item.status ? (
               <div className="snapshot-status">
                 <span className={`status-light ${item.statusTone}`} aria-hidden="true" />
                 {item.status}
               </div>
-              {isProject && item.started ? (
-                <span className="snapshot-dates">
-                  Started {item.started} · Last updated {item.updated}
-                </span>
-              ) : null}
-            </div>
-          ) : (
-            <div className="snapshot-status">{item.period}</div>
-          )}
+            ) : (
+              <span className="snapshot-role">{item.role}</span>
+            )}
+            {isProject && item.started ? (
+              <span className="snapshot-dates">
+                Started {item.started} · Last updated {item.updated}
+              </span>
+            ) : null}
+            {item.period ? <span className="snapshot-dates">{item.period}</span> : null}
+          </div>
         </div>
 
-        <p className="snapshot-copy">{item.overview}</p>
-        {isProject ? (
-          <p className="snapshot-work project-detail">{item.contribution}</p>
-        ) : null}
+        <div className="snapshot-description">
+          <p>{item.overview}</p>
+          {isProject ? <p>{item.contribution}</p> : null}
+        </div>
+
+        <div className="snapshot-terms">
+          <h4 id="snapshot-terms-heading">{isProject ? "Tech stack" : "Keywords"}</h4>
+          <ul role="list" aria-labelledby="snapshot-terms-heading">
+            {terms.map((term) => <li key={term}>{term}</li>)}
+          </ul>
+        </div>
 
         {isProject && (item.hasGithub || item.hasSite) ? (
           <div className="snapshot-links">

@@ -503,18 +503,11 @@ main > .page-width > .section:first-child {
   line-height: 1.5;
 }
 
-.project-stack {
-  display: block;
-  margin-top: 7px;
-  color: var(--secondary);
-  font-size: 10px;
-  line-height: 1.45;
-}
-
 .project-panel {
   position: relative;
   display: grid;
-  align-items: center;
+  align-items: start;
+  min-width: 0;
   padding: 32px 0 32px 42px;
 }
 
@@ -524,17 +517,14 @@ main > .page-width > .section:first-child {
 }
 
 .snapshot-heading {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: start;
-  gap: 24px;
-  margin-bottom: 22px;
+  margin-bottom: 18px;
 }
 
 .snapshot-meta {
   display: grid;
-  justify-items: end;
-  gap: 7px;
+  justify-items: start;
+  gap: 4px;
+  margin-top: 7px;
 }
 
 .snapshot-status {
@@ -542,57 +532,88 @@ main > .page-width > .section:first-child {
   align-items: center;
   gap: 8px;
   margin: 0;
-  color: var(--secondary);
-  font-size: 10px;
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 600;
   letter-spacing: .05em;
   text-transform: uppercase;
 }
 
-.snapshot-meta .snapshot-status {
-  position: static;
+.snapshot-role {
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .snapshot-dates {
   color: var(--secondary);
-  font-size: 10px;
+  font-size: 11px;
   line-height: 1.35;
   letter-spacing: .02em;
-  white-space: nowrap;
 }
 
 .snapshot-title {
-  min-width: 0;
   margin: 0;
   font-size: clamp(21px, 2.4vw, 30px);
   line-height: 1.22;
   font-weight: 500;
   letter-spacing: -.05em;
+  overflow-wrap: anywhere;
 }
 
-.snapshot-copy {
-  max-width: 620px;
-  margin: 0 0 25px;
-  color: var(--secondary);
-  font-size: 13px;
-  line-height: 1.75;
-}
-
-.snapshot-work {
-  margin: 0 0 24px;
-  font-size: 12px;
-}
-
-.snapshot-work.project-detail {
+.snapshot-description {
   max-width: 620px;
   color: var(--secondary);
   font-size: 13px;
   line-height: 1.75;
+}
+
+.snapshot-description p {
+  margin: 0;
+}
+
+.snapshot-description p + p {
+  margin-top: 12px;
+}
+
+.snapshot-terms {
+  max-width: 620px;
+  margin-top: 16px;
+}
+
+.snapshot-terms h4 {
+  margin: 0 0 6px;
+  color: var(--secondary);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.snapshot-terms ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.snapshot-terms li {
+  max-width: 100%;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(51, 51, 51, .08);
+  overflow-wrap: anywhere;
 }
 
 .snapshot-links {
   display: flex;
   align-items: center;
   gap: 18px;
+  margin-top: 16px;
 }
 
 @keyframes content-in {
@@ -1096,11 +1117,102 @@ main > .page-width > .section:first-child {
 
 @media (max-width: 800px) {
   .projects-layout {
-    grid-template-columns: 280px minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+  }
+
+  .project-list {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(146px, 1fr);
+    grid-template-columns: none;
+    height: auto;
+    max-height: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-right: 0;
+    border-bottom: 1px solid var(--rule-strong);
+    scrollbar-width: thin;
+  }
+
+  .project-list-shell {
+    height: auto;
+  }
+
+  .project-list-shell::after {
+    top: 0;
+    right: 0;
+    bottom: 1px;
+    left: auto;
+    width: 48px;
+    height: auto;
+    background: linear-gradient(to right, transparent, var(--paper) 82%);
+  }
+
+  .project-scroll-cue {
+    right: 4px;
+    bottom: 4px;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    background: var(--paper);
+    font-size: 14px;
+  }
+
+  .project-select {
+    min-height: 78px;
+    padding: 8px 12px;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "number actions" "main main";
+    align-content: start;
+    gap: 4px 8px;
+    border-right: 1px solid var(--rule);
+    border-bottom: 0;
+  }
+
+  .project-select[aria-selected="true"] {
+    padding-left: 12px;
+    box-shadow: inset 0 -3px 0 var(--green);
+  }
+
+  .project-number {
+    grid-area: number;
+    padding-top: 0;
+  }
+
+  .project-main {
+    grid-area: main;
+    min-width: 0;
+  }
+
+  .project-title-line {
+    margin-bottom: 0;
+    padding-right: 0;
+  }
+
+  .project-name {
+    font-size: 13px;
+    overflow-wrap: anywhere;
+  }
+
+  .project-row-actions {
+    position: static !important;
+    grid-area: actions;
+    align-self: center;
+    min-width: 0;
+  }
+
+  .project-lock {
+    width: 15px;
+    height: 15px;
+  }
+
+  .project-short {
+    display: none;
   }
 
   .project-panel {
-    padding-left: 28px;
+    padding: 24px 0 16px;
   }
 }
 
@@ -1159,84 +1271,6 @@ main > .page-width > .section:first-child {
   .section-heading {
     align-items: flex-start;
     margin-bottom: 18px;
-  }
-
-  .projects-layout {
-    grid-template-columns: 1fr;
-    min-height: 0;
-  }
-
-  .project-list {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(145px, 1fr);
-    grid-template-columns: none;
-    height: auto;
-    max-height: none;
-    overflow-x: auto;
-    overflow-y: hidden;
-    border-right: 0;
-    border-bottom: 1px solid var(--rule-strong);
-    scrollbar-width: thin;
-  }
-
-  .project-list-shell {
-    height: auto;
-  }
-
-  .project-list-shell::after {
-    top: 0;
-    right: 0;
-    bottom: 1px;
-    left: auto;
-    width: 78px;
-    height: auto;
-    background: linear-gradient(to right, transparent, var(--paper) 82%);
-  }
-
-  .project-scroll-cue {
-    right: 10px;
-    bottom: 10px;
-  }
-
-  .project-select {
-    min-height: 88px;
-    padding: 14px 12px;
-    grid-template-columns: 20px 1fr auto;
-    border-right: 1px solid var(--rule);
-    border-bottom: 0;
-  }
-
-  .project-select[aria-selected="true"] {
-    padding-left: 12px;
-    box-shadow: inset 0 -3px 0 var(--green);
-  }
-
-  .project-short {
-    display: none;
-  }
-
-  .project-panel {
-    position: relative;
-    padding: 24px 0 12px;
-  }
-
-  .snapshot-heading {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 14px;
-    margin-bottom: 22px;
-  }
-
-  .snapshot-meta {
-    width: fit-content;
-    margin-left: auto;
-    gap: 6px;
-  }
-
-  .snapshot-heading > .snapshot-status {
-    width: fit-content;
-    margin-left: auto;
   }
 
   .now-tabs {

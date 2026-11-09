@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Icon from "./Icon";
 import ProjectLink from "./ProjectLink";
 
-const MOBILE_QUERY = "(max-width: 650px)";
+const MOBILE_QUERY = "(max-width: 800px)";
 
 function ProjectList({ items, selectedId, onSelect, area }) {
   const listRef = useRef(null);
@@ -108,8 +108,7 @@ function ProjectList({ items, selectedId, onSelect, area }) {
                     <span className="project-name">{item.title}</span>
                   )}
                 </span>
-                <span className="project-short">{item.short}</span>
-                <span className="project-stack">{item.stack}</span>
+                <span className="project-short">{item.short ?? item.role}</span>
               </span>
               <span className="project-row-actions">
                 {item.status ? (
@@ -139,7 +138,7 @@ function ProjectList({ items, selectedId, onSelect, area }) {
         aria-hidden={!showCue}
         tabIndex={showCue ? 0 : -1}
       >
-        {scrollState.horizontal ? "→ scroll" : "↓ scroll"}
+        {scrollState.horizontal ? "→" : "↓ scroll"}
       </button>
     </div>
   );
