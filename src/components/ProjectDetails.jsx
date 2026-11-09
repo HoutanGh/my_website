@@ -1,12 +1,50 @@
+import { useEffect, useRef, useState } from "react";
 import ProjectLink from "./ProjectLink";
 
 function ProjectDetails({ item, area }) {
   const isProject = area === "projects";
   const terms = isProject ? item.stack.split(" · ") : item.keywords;
+  const itemKey = `${area}-${item.id}`;
+  const descriptionRef = useRef(null);
+  const [measured, setMeasured] = useState(null);
+  // A measurement belongs to the item it was taken for, so a newly selected item
+  // never shows the previous item's scroll fade.
+  const scrollState = measured?.itemKey === itemKey
+    ? measured
+    : { hasOverflow: false, atEnd: true };
+
+  useEffect(() => {
+    const description = descriptionRef.current;
+    if (!description) return undefined;
+
+    const updateScrollState = () => {
+      const hasOverflow = description.scrollHeight > description.clientHeight + 2;
+      const atEnd =
+        description.scrollTop + description.clientHeight >= description.scrollHeight - 3;
+      setMeasured({ itemKey, hasOverflow, atEnd: !hasOverflow || atEnd });
+    };
+
+    const frame = window.requestAnimationFrame(updateScrollState);
+    const observer = new ResizeObserver(updateScrollState);
+    observer.observe(description);
+    for (const paragraph of description.children) observer.observe(paragraph);
+    description.addEventListener("scroll", updateScrollState, { passive: true });
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      observer.disconnect();
+      description.removeEventListener("scroll", updateScrollState);
+    };
+  }, [itemKey]);
+
+  const shellClasses = [
+    "snapshot-description-shell",
+    scrollState.hasOverflow && !scrollState.atEnd ? "has-more" : "",
+  ].filter(Boolean).join(" ");
 
   return (
     <section className="project-panel" aria-live="polite">
-      <div className="project-content" key={`${area}-${item.id}`}>
+      <div className="project-content" key={itemKey}>
         <div className="snapshot-heading">
           <h3 className="snapshot-title">{item.title}</h3>
           <div className="snapshot-meta">
@@ -27,9 +65,15 @@ function ProjectDetails({ item, area }) {
           </div>
         </div>
 
-        <div className="snapshot-description">
-          <p>{item.overview}</p>
-          {isProject ? <p>{item.contribution}</p> : null}
+        <div className={shellClasses}>
+          <div
+            className={`snapshot-description${scrollState.hasOverflow ? " is-scrollable" : ""}`}
+            ref={descriptionRef}
+            tabIndex={scrollState.hasOverflow ? 0 : undefined}
+          >
+            <p>{item.overview}</p>
+            {isProject ? <p>{item.contribution}</p> : null}
+          </div>
         </div>
 
         <div className="snapshot-terms">

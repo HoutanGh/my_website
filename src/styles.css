@@ -285,7 +285,8 @@ main > .page-width > .section:first-child {
 .projects-layout {
   display: grid;
   grid-template-columns: 310px minmax(0, 1fr);
-  min-height: 390px;
+  grid-template-rows: minmax(0, 1fr);
+  height: 500px;
   border-top: 1px solid var(--rule-strong);
   border-bottom: 1px solid var(--rule-strong);
 }
@@ -504,14 +505,19 @@ main > .page-width > .section:first-child {
 
 .project-panel {
   position: relative;
-  display: grid;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
   min-width: 0;
+  min-height: 0;
   padding: 32px 0 32px 42px;
 }
 
 .project-content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
   width: 100%;
+  min-height: 0;
   animation: content-in .24s var(--ease);
 }
 
@@ -560,11 +566,43 @@ main > .page-width > .section:first-child {
   overflow-wrap: anywhere;
 }
 
-.snapshot-description {
+.snapshot-description-shell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   max-width: 620px;
+  min-height: 0;
+}
+
+.snapshot-description-shell::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 36px;
+  pointer-events: none;
+  background: linear-gradient(to bottom, transparent, var(--paper));
+  opacity: 0;
+  transition: opacity .18s ease;
+}
+
+.snapshot-description-shell.has-more::after {
+  opacity: 1;
+}
+
+.snapshot-description {
+  min-height: 0;
+  overflow-y: auto;
   color: var(--secondary);
   font-size: 13px;
   line-height: 1.75;
+  scrollbar-color: var(--rule-strong) transparent;
+  scrollbar-width: thin;
+}
+
+.snapshot-description.is-scrollable {
+  padding-right: 12px;
 }
 
 .snapshot-description p {
@@ -1117,7 +1155,8 @@ main > .page-width > .section:first-child {
 @media (max-width: 800px) {
   .projects-layout {
     grid-template-columns: minmax(0, 1fr);
-    min-height: 0;
+    grid-template-rows: none;
+    height: auto;
   }
 
   .project-list {

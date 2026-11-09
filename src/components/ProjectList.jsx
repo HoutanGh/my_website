@@ -93,7 +93,7 @@ function ProjectList({ items, selectedId, onSelect, area }) {
                   onClick={() => onSelect(item.id)}
                 />
               )}
-              <span className="project-number">0{index + 1}</span>
+              <span className="project-number">{String(index + 1).padStart(2, "0")}</span>
               <span className="project-main">
                 <span className="project-title-line">
                   {item.hasSite ? (
