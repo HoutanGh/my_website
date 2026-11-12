@@ -41,7 +41,7 @@ export const learning = {
       id: "mit-finance-mathematics",
       status: "IN PROGRESS",
       title: "MIT: Topics in Mathematics with Applications in Finance",
-      completed: 21,
+      completed: 23,
       total: 25,
       playlistUrl: "https://www.youtube.com/playlist?list=PLUl4u3cNGP601Q2jo-J_3raNCMMs6Jves",
     },
