@@ -1,45 +1,31 @@
-# Houtan Ghaebi — Portfolio
+# My website
 
-A responsive one-page portfolio built with React and Vite. The site presents current
-projects, professional experience, reading, music, language study, and other active
-learning in a compact interface designed for quick scanning and optional exploration.
+I built this site with React and Vite. It’s where I keep my projects, work and CV, along with what I’m reading and learning.
 
-## Structure
+[Visit the site](https://houtangh.github.io/my_website/)
 
-- `src/components/` contains the header, project/work explorer, and Now section.
-- `src/data/` contains the editable portfolio content.
-- `public/cv/` contains the downloadable CV.
-- `src/styles.css` contains the complete responsive visual system.
+## Run it locally
 
-## Local development
-
-```bash
+```sh
 npm install
 npm run dev
 ```
 
-Open the URL printed by Vite, usually `http://localhost:5173`.
+Open the URL that Vite prints in the terminal.
 
-## Checks
+Run `npm run check` for lint and build checks.
 
-```bash
-npm run check
-```
+## Where I make changes
 
-## GitHub Pages deployment
+- `src/data/` has the projects, work, books and learning entries.
+- `src/components/` has the React components.
+- `src/styles.css` has the styles.
+- `public/cv/` has my CV.
 
-A workflow is included at `.github/workflows/deploy.yml` and runs the same checks
-before deploying whenever `master` is pushed.
+When a link or audio file is ready, add it to the relevant entry in `src/data/`.
 
-1. Push to `master`.
-2. In GitHub repo settings, set Pages source to `GitHub Actions`.
-3. The workflow builds and deploys `dist/` automatically.
+## Deploy
 
-The workflow sets `VITE_BASE_PATH` automatically for both user sites and project
-sites. Local development continues to use `/`.
+A push to `master` runs the checks and publishes `dist/` to GitHub Pages. The workflow uses `VITE_BASE_PATH` for the Pages URL. Vite uses `/` locally.
 
-## Content placeholders
-
-Links that are not yet public are intentionally rendered as non-navigating placeholder
-controls. Update `src/data/links.js`, `src/data/projects.js`, and
-`src/data/learning.js` when the real destinations or audio files are ready.
+For a new copy of the repo, set the Pages source to **GitHub Actions** in the repository settings.
