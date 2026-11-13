@@ -1,6 +1,27 @@
 export const books = [
   {
     status: "CURRENT",
+    title: "East of Eden",
+    author: "John Steinbeck",
+    comments: [
+      {
+        date: "2026-11-12",
+        text: `I’m already forgetting some of the earlier characters, even though I know they’ll tie into the story somehow. I’m quite excited to see how it all comes together. Steinbeck can fit someone’s entire life into a few pages and keep me gripped the whole time. By the end of those pages, I feel like I know what kind of person they are.
+
+And yet I still fall for Cathy’s tricks. Even when I know she’s faking it, I picture her reactions as if they’re genuine. Interesting how words on a page can do that.`,
+      },
+      {
+        date: "2026-11-05",
+        text: "There’s so much tension whenever the characters speak to each other. I’ve felt it especially since the scene where Charles beats up Adam and goes looking for the axe.",
+      },
+      {
+        date: "2026-10-31",
+        text: "I don’t think I’ve read a novel in a while that I’ve found this hard to put down. Maybe some people would laugh, but the last books that really gripped me were the A Song of Ice and Fire series and George R. R. Martin’s other work. The Hobbit is good, and Don Quixote has its moments. I never quite fell into either of them in that childish way I sometimes do with books. East of Eden seems to gnaw at my brain as I read it.",
+      },
+    ],
+  },
+  {
+    status: "CURRENT",
     title: "Confessions",
     author: "St. Augustine",
     comments: [
@@ -54,18 +75,6 @@ There’s an Orthodox priest in Shropshire who seems to have this somewhat on lo
   },
   {
     status: "CURRENT",
-    title: "Don Quixote",
-    author: "Miguel de Cervantes",
-    comments: [
-      {
-        date: "2026-08-01",
-        text:
-          "Slowed down my reading, as I've read that in those days excerpts of books like this were released periodically, weekly or monthly in articles, like TV shows nowadays. So it shouldn't really be read as an entire block of text.",
-      },
-    ],
-  },
-  {
-    status: "CURRENT",
     title: "ماهی سیاه کوچولو",
     author: "Samad Behrangi",
     rtl: true,
@@ -96,6 +105,18 @@ There’s an Orthodox priest in Shropshire who seems to have this somewhat on lo
         date: "2026-08-01",
         text:
           "Trying to go through it as one would go through Homer's Odyssey - a deeply enriched work of literature.",
+      },
+    ],
+  },
+  {
+    status: "PARKED",
+    title: "Don Quixote",
+    author: "Miguel de Cervantes",
+    comments: [
+      {
+        date: "2026-08-01",
+        text:
+          "Slowed down my reading, as I've read that in those days excerpts of books like this were released periodically, weekly or monthly in articles, like TV shows nowadays. So it shouldn't really be read as an entire block of text.",
       },
     ],
   },
