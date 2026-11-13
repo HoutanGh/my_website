@@ -968,6 +968,7 @@ main > .page-width > .section:first-child {
 
 .book-comment-copy-inner {
   display: block;
+  white-space: pre-line;
   animation: book-comment-in .18s ease;
 }
 

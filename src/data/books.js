@@ -5,6 +5,40 @@ export const books = [
     author: "St. Augustine",
     comments: [
       {
+        date: "2026-11-13",
+        text: `Wow, another quote from Augustine about his own doubts:
+
+“I am embarrassed, believe me, by great difficulties, and am wholly at a loss to find an answer by which they are solved.”
+
+It’s nice to read that. It makes him seem a lot more human. Faith isn’t easy to come by.
+
+I’m on the last book now, Book XIII.`,
+      },
+      {
+        date: "2026-11-04",
+        text: "I’ve been reading more about Christian doctrine generally, and it seems to me that Augustine justified the killing of children. I can see how he might get there given his complete faith in God. If God commands something we consider unspeakable, Augustine might say that it’s unspeakable from our point of view, and that it might look different in the light of God’s truth. I’m not sure I agree, but I can see how he could reach that conclusion from what I’ve read so far.",
+      },
+      {
+        date: "2026-10-23",
+        text: "It was quite surreal to read the inner thoughts of someone regarded as one of the Church’s greatest minds. He even addresses some of the more childish criticisms you still hear from atheists today.",
+      },
+      {
+        date: "2026-10-12",
+        text: `Augustine writes about giving up worldly pleasures. It seems like an impossible thing to do. When monks give up their earthly possessions and retreat into the mountains to ‘ascend’ or reach enlightenment, have they truly done something difficult? Or have they just removed all temptation?
+
+One way to deal with an addiction is to remove yourself from the environment altogether. I’ve come to the conclusion, for now at least, that there are some addictions you can’t fight. You have to run away from them. Are these monks or saints running away from the addiction of life? Is all of life an addiction? Is hugging your child an addiction? Is feeding the poor? Are these worldly pleasures?
+
+There’s an Orthodox priest in Shropshire who seems to have this somewhat on lock. But I saw him playing fetch with his dog on Instagram (I’m sure he doesn’t scroll). Isn’t that enjoying a worldly pleasure? Was Augustine wrong, or am I misreading him? The latter is more likely.`,
+      },
+      {
+        date: "2026-10-03",
+        text: "I can see how some of what Augustine says might sound like rambling. Maybe once you’ve personified the unknown as God, you end up going around in circles trying to rationalise something that can’t be rationalised. Maybe at some point you just have to stop questioning it. But Augustine doesn’t. I’m not sure what the right thing to do is.",
+      },
+      {
+        date: "2026-09-25",
+        text: "Some of the things Augustine says are obvious, but I couldn’t put them into words as clearly as he does. Thinking something is obvious is quite different from being able to explain it.",
+      },
+      {
         date: "2026-09-16",
         text: "I wouldn't recommend this to an atheist, I think the religious fanaticism would be an instant turn off that would stop them from gaining anything of value. For some reason Christian fanaticism seems to be a trigger point for many people. Once you look past that, you can really see the human side of Augustine, the doubt, the confidence, the sorrow and the happiness. And beyond that, you can really learning something.",
       },
