@@ -3,7 +3,7 @@ export const work = [
     id: "aviva",
     title: "Aviva",
     role: "Technical Analyst · Cybersecurity",
-    period: "16 Nov 2026 – present",
+    period: "Nov 2026—present",
   },
   {
     id: "vmo2",
