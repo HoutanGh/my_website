@@ -38,10 +38,15 @@ export const learning = {
   },
   study: [
     {
-      id: "mit-finance-mathematics",
+      id: "cybersecurity",
       status: "IN PROGRESS",
+      title: "Cybersecurity for my new role",
+    },
+    {
+      id: "mit-finance-mathematics",
+      status: "COMPLETE",
       title: "MIT: Topics in Mathematics with Applications in Finance",
-      completed: 23,
+      completed: 25,
       total: 25,
       playlistUrl: "https://www.youtube.com/playlist?list=PLUl4u3cNGP601Q2jo-J_3raNCMMs6Jves",
     },

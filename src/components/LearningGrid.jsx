@@ -115,11 +115,11 @@ function LearningGrid() {
                   key={course.id}
                   status={course.status}
                   active={course.status === "IN PROGRESS"}
-                  action={(
+                  action={course.playlistUrl ? (
                     <ProjectLink href={course.playlistUrl}>
                       {course.completed} / {course.total}
                     </ProjectLink>
-                  )}
+                  ) : null}
                 >
                   {course.title}
                 </OperatorItem>
