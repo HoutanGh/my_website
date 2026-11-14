@@ -7,7 +7,7 @@ import ProjectList from "./ProjectList";
 function PortfolioExplorer() {
   const [area, setArea] = useState("projects");
   const [selectedProject, setSelectedProject] = useState("trading");
-  const [selectedWork, setSelectedWork] = useState("vmo2");
+  const [selectedWork, setSelectedWork] = useState(work[0].id);
 
   const items = area === "projects" ? projects : work;
   const selectedId = area === "projects" ? selectedProject : selectedWork;

@@ -1,10 +1,16 @@
 export const work = [
   {
+    id: "aviva",
+    title: "Aviva",
+    role: "Technical Analyst · Cybersecurity",
+    period: "16 Nov 2026 – present",
+  },
+  {
     id: "vmo2",
     title: "Virgin Media O2",
     role: "Technical Business Analyst / Product Owner",
     overview:
-      "I work as a Business Analyst across three B2B network automation squads. For one squad of eight senior engineers and one tester, I served as both Business Analyst and Product Owner. I helped set priorities, refine the backlog and prepare tickets for development. I also review service provisioning workflows and helped document the checks and rollback requirements for a programme to migrate approximately 2,500 network devices.",
+      "I worked as a Business Analyst across three B2B network automation squads. For one squad of eight senior engineers and one tester, I served as both Business Analyst and Product Owner. I helped set priorities, refine the backlog and prepare tickets for development. I also reviewed service provisioning workflows and helped document the checks and rollback requirements for a programme to migrate approximately 2,500 network devices.",
     keywords: [
       "Requirements analysis",
       "Process mapping",
@@ -16,7 +22,7 @@ export const work = [
       "Cisco NSO",
       "Itential",
     ],
-    period: "Nov 2024—present",
+    period: "Nov 2024—Nov 2026",
   },
   {
     id: "healthmaster",

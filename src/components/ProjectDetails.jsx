@@ -3,7 +3,7 @@ import ProjectLink from "./ProjectLink";
 
 function ProjectDetails({ item, area }) {
   const isProject = area === "projects";
-  const terms = isProject ? item.stack.split(" · ") : item.keywords;
+  const terms = isProject ? item.stack.split(" · ") : (item.keywords ?? []);
   const itemKey = `${area}-${item.id}`;
   const descriptionRef = useRef(null);
   const [measured, setMeasured] = useState(null);
@@ -65,23 +65,27 @@ function ProjectDetails({ item, area }) {
           </div>
         </div>
 
-        <div className={shellClasses}>
-          <div
-            className={`snapshot-description${scrollState.hasOverflow ? " is-scrollable" : ""}`}
-            ref={descriptionRef}
-            tabIndex={scrollState.hasOverflow ? 0 : undefined}
-          >
-            <p>{item.overview}</p>
-            {isProject ? <p>{item.contribution}</p> : null}
+        {item.overview ? (
+          <div className={shellClasses}>
+            <div
+              className={`snapshot-description${scrollState.hasOverflow ? " is-scrollable" : ""}`}
+              ref={descriptionRef}
+              tabIndex={scrollState.hasOverflow ? 0 : undefined}
+            >
+              <p>{item.overview}</p>
+              {isProject ? <p>{item.contribution}</p> : null}
+            </div>
           </div>
-        </div>
+        ) : null}
 
-        <div className="snapshot-terms">
-          <h4 id="snapshot-terms-heading">{isProject ? "Tech stack" : "Keywords"}</h4>
-          <ul role="list" aria-labelledby="snapshot-terms-heading">
-            {terms.map((term) => <li key={term}>{term}</li>)}
-          </ul>
-        </div>
+        {terms.length > 0 ? (
+          <div className="snapshot-terms">
+            <h4 id="snapshot-terms-heading">{isProject ? "Tech stack" : "Keywords"}</h4>
+            <ul role="list" aria-labelledby="snapshot-terms-heading">
+              {terms.map((term) => <li key={term}>{term}</li>)}
+            </ul>
+          </div>
+        ) : null}
 
         {isProject && (item.hasGithub || item.hasSite) ? (
           <div className="snapshot-links">

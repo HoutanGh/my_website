@@ -34,7 +34,7 @@ function IdentityHeader() {
         <div className="identity-line">
           <span className="identity-item">
             <Icon name="building" />
-            Technical Business Analyst @ VMO2
+            Technical Analyst @ Aviva
           </span>
           <span className="identity-dot role-dot" aria-hidden="true">•</span>
           <span className="identity-item">
