@@ -2,7 +2,7 @@ export const work = [
   {
     id: "aviva",
     title: "Aviva",
-    role: "Technical Analyst · Cybersecurity",
+    role: "Technical Business Analyst · Cybersecurity",
     period: "Nov 2026—present",
   },
   {
