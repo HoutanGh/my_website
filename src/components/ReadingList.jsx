@@ -31,7 +31,7 @@ function ReadingList() {
   const activeAnchorRef = useRef(null);
   const closeTimerRef = useRef(null);
   const [activeBookIndex, setActiveBookIndex] = useState(null);
-  const [activeCommentIndex, setActiveCommentIndex] = useState(0);
+  const [commentIndexByBook, setCommentIndexByBook] = useState({});
   const [isCommentOpen, setIsCommentOpen] = useState(false);
   const [cardPosition, setCardPosition] = useState({ top: CARD_INSET, left: CARD_INSET });
   const [cardSide, setCardSide] = useState("right");
@@ -39,6 +39,7 @@ function ReadingList() {
 
   const activeBook = activeBookIndex === null ? null : books[activeBookIndex];
   const comments = activeBook ? datedComments(activeBook) : [];
+  const activeCommentIndex = commentIndexByBook[activeBookIndex] ?? 0;
   const activeComment = comments[activeCommentIndex] ?? null;
 
   const positionCard = useCallback(() => {
@@ -149,8 +150,14 @@ function ReadingList() {
     cancelClose();
     activeAnchorRef.current = anchor;
     setActiveBookIndex(index);
-    setActiveCommentIndex(0);
     setIsCommentOpen(true);
+  };
+
+  const moveComment = (direction) => {
+    setCommentIndexByBook((positions) => ({
+      ...positions,
+      [activeBookIndex]: (positions[activeBookIndex] ?? 0) + direction,
+    }));
   };
 
   return (
@@ -225,7 +232,7 @@ function ReadingList() {
                       title="Older comment"
                       tabIndex={isCommentOpen ? 0 : -1}
                       disabled={activeCommentIndex === 0}
-                      onClick={() => setActiveCommentIndex((index) => index - 1)}
+                      onClick={() => moveComment(-1)}
                     >
                       ←
                     </button>
@@ -235,7 +242,7 @@ function ReadingList() {
                       title="Newer comment"
                       tabIndex={isCommentOpen ? 0 : -1}
                       disabled={activeCommentIndex === comments.length - 1}
-                      onClick={() => setActiveCommentIndex((index) => index + 1)}
+                      onClick={() => moveComment(1)}
                     >
                       →
                     </button>
